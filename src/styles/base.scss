@@ -1,0 +1,28 @@
+// Fonts
+
+@font-face {
+  font-family: "Marvelo";
+  src: url("../assets/fonts/Marvelous.otf");
+}
+$font-family: "Marvelo", sans-serif;
+$font-xxl-size: 48px;
+$font-xl-size: 36px;
+$font-l-size: 24px;
+$font-m-size: 16px;
+$font-s-size: 14px;
+$font-xs-size: 12px;
+$font-weight: 400;
+$font-weight-bold: 700;
+
+// Colors
+$marvel-black: #000000;
+$marvel-red: #ec1d24;
+$marvel-white: #ffffff;
+$marvel-grey: #aaaaaa;
+$marvel-dark-grey: #333333;
+
+// Media queries
+$breakpoint-mobile: 320px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+$breakpoint-large-desktop: 1440px;
