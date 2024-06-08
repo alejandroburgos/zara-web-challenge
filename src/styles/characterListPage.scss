@@ -1,0 +1,30 @@
+.character-list-page {
+  padding: 50px;
+
+  &__title-favorites {
+    font-size: $font-xxl-size;
+    font-weight: $font-weight-bold;
+    margin-bottom: 20px;
+  }
+
+  &__count {
+    font-size: $font-xs-size;
+    font-weight: $font-weight-bold;
+  }
+
+  .character-list {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 20px;
+    margin-top: 40px;
+
+    @media (max-width: $breakpoint-mobile) {
+      grid-template-columns: 1fr;
+    }
+
+    @media (max-width: $breakpoint-tablet) {
+      grid-template-columns: repeat(2, 1fr);
+      padding: 20px;
+    }
+  }
+}

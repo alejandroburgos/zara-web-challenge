@@ -1,0 +1,29 @@
+.progress-outer {
+  display: flex;
+  align-items: center;
+}
+.progress-info {
+  width: 30px;
+  padding-left: 5px;
+}
+
+.progress {
+  width: 100%;
+  min-height: 1px;
+  position: relative;
+  overflow: hidden;
+  height: 5px;
+}
+
+.progress-bar {
+  background: $marvel-red;
+  height: 100%;
+  position: absolute;
+  left: 0;
+}
+
+.progress.progress--loading .progress-bar {
+  width: 30%;
+  animation: moveToRight 1s infinite linear smooth;
+  border-radius: 3%;
+}

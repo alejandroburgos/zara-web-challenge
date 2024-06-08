@@ -1,41 +1,37 @@
 # Zara Web Challenge - Marvel
 
-## Descripción
+Este proyecto es una aplicación web desarrollada para la vacante de Inditex, centrada en el universo Marvel.
 
-Esta aplicación muestra información sobre personajes de Marvel utilizando la API de Marvel. La aplicación contiene dos vistas principales: una vista de listado de personajes y una vista de detalles del personaje.
+## Cómo ejecutar la aplicación
 
-## Requisitos
+Para ejecutar esta aplicación, sigue estos pasos:
 
-- Node.js >= 18
-- React >= 17
+1. Clona el repositorio en tu pc.
+2. Navega hasta el directorio del proyecto.
+3. Ejecuta `npm install` para instalar todas las dependencias/librerias necesarias.
+4. Una vez que todas las dependencias estén instaladas, ejecuta `npm start` para iniciar la aplicación.
+5. Abre tu navegador y visita `http://localhost:3000` para ver la aplicación en acción.
 
-## Instalación
+## Arquitectura y estructura
 
-1. Clona el repositorio:
+La aplicación sigue una arquitectura de diseño modular, con cada componente de la aplicación encapsulado en su propio módulo. Esto permite una mayor flexibilidad y escalabilidad, ya que cada módulo puede ser desarrollado, probado y actualizado de forma independiente.
 
-   ```bash
-   git clone <url-del-repositorio>
-   cd marvel-app
-   ```
+La estructura del proyecto es la siguiente:
 
-2. Instala las dependencias:
+- `src/`: Este directorio contiene todo el código fuente de la aplicación.
+  - `components/`: Este directorio contiene todos los componentes de React utilizados en la aplicación.
+  - `services/`: Este directorio contiene todos los servicios utilizados para interactuar con las APIs externas.
+  - `styles/`: Este directorio contiene todos los archivos de estilos SCSS de todos los componentes.
+  - `test/`: Este directorio contiene todos los archivos de pruebas de los componentes.
+  - `App.js`: Este es el componente principal de la aplicación.
 
-   ```bash
-   npm install
-   ```
+## Información relevante
 
-3. Configura las variables de entorno en un archivo `.env`:
-   ```env
-   REACT_APP_PUBLIC_KEY=your_public_key
-   REACT_APP_PRIVATE_KEY=your_private_key
-   ```
+**Nota:**
+El buscador de personajes de Marvel se filtra sin API, ya que no he encontrado una forma de filtrar los resultados de la API de Marvel. Por lo tanto, los resultados se filtran en el lado del cliente. (https://developer.marvel.com/docs#!/public)
 
-## Ejecución
+Esta aplicación utiliza la API de Marvel para obtener y mostrar información sobre los personajes de Marvel. Para utilizar esta API, necesitarás obtener una clave API de Marvel.
 
-### Modo Desarrollo
+Visita el [sitio web oficial de Marvel](https://developer.marvel.com/) para obtener más información sobre cómo obtener una clave API.
 
-```bash
-npm start
-```
-
-Esto iniciará la aplicación en modo desarrollo con recarga en caliente.
+La aplicación está actualmente alojada en https://zara-challenge-marvel.aleburgos.es/.

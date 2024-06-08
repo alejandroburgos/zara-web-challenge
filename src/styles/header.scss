@@ -1,0 +1,17 @@
+.header {
+  background-color: $marvel-black;
+  color: $marvel-white;
+  padding: 20px 50px 20px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__favorites {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-right: 50px;
+    text-decoration: none;
+    color: $marvel-white;
+  }
+}

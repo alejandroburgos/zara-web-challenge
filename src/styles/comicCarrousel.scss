@@ -1,0 +1,63 @@
+.comics-carrousel {
+  padding: 0 350px 0 350px;
+  position: relative;
+  height: 100vh;
+
+  @media (max-width: $breakpoint-mobile) {
+    padding: 20px;
+  }
+
+  @media (max-width: $breakpoint-tablet) {
+    padding: 20px;
+  }
+
+  &__scroll {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    padding-bottom: 100px;
+  }
+
+  &__scroll::-webkit-scrollbar {
+    height: 5px;
+  }
+
+  &__scroll::-webkit-scrollbar-thumb {
+    background-color: $marvel-red;
+  }
+
+  &__list-container {
+    max-width: calc(200px * 5 + 20px * 4);
+    overflow-x: hidden;
+  }
+
+  &__list {
+    display: flex;
+    gap: 20px;
+    padding-bottom: 20px;
+  }
+
+  &__comic {
+    width: 200px;
+    max-height: 300px;
+    cursor: pointer;
+  }
+
+  &__comic-image {
+    width: 200px;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__comic-title {
+    font-size: $font-m-size;
+    margin: 10px 0;
+    font-weight: $font-weight-bold;
+  }
+
+  &__comic-year {
+    font-size: $font-m-size;
+    margin: 10px 0;
+  }
+}

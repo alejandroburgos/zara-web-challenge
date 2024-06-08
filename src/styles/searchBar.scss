@@ -1,0 +1,31 @@
+.search-bar {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  margin-bottom: 20px;
+
+  &__icon {
+    position: absolute;
+    top: 2px;
+    left: 10px;
+    width: 15px;
+    height: 15px;
+  }
+
+  &__input {
+    width: 100%;
+    padding-bottom: 5px;
+    padding-left: 40px;
+    border: none;
+    border-bottom: 1px solid black;
+    outline: none;
+    font-size: 16px;
+    text-transform: uppercase;
+  }
+
+  ::placeholder {
+    color: $marvel-grey;
+    opacity: 1;
+  }
+}
