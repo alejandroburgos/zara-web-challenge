@@ -1,3 +1,4 @@
+import { useCallback } from "react";
 import axios from "axios";
 import md5 from "md5";
 import { useLoading } from "../context/LoadingContext";
@@ -16,90 +17,109 @@ const getAuthParams = () => {
   };
 };
 
-// NOTA: LAS LLAMADAS DE MARVEL NO TRAE EL VALOR DEL PROGRESS, POR ESO MISMO VOY A SIMULARLO PARA RESPETAR EL FIGMA
 export const useMarvelApi = () => {
-  const { setLoading, setProgress } = useLoading();
+  const { setLoading, setProgress, setError } = useLoading(); // Agregar setError
 
-  const simulateProgress = (duration = 1000) => {
-    let progress = 0;
-    const increment = 100 / (duration / 100);
+  const simulateProgress = useCallback(
+    (duration = 1000) => {
+      let progress = 0;
+      const increment = 100 / (duration / 100);
 
-    return new Promise((resolve) => {
-      const interval = setInterval(() => {
-        progress += increment;
-        if (progress >= 100) {
-          setProgress(100);
-          clearInterval(interval);
-          resolve();
-        } else {
-          setProgress(progress);
-        }
-      }, 100);
-    });
-  };
-
-  const fetchCharacters = async (query = "", limit = 50) => {
-    setProgress(0);
-    setLoading(true);
-
-    const params = {
-      ...getAuthParams(),
-      limit,
-    };
-
-    try {
-      const response = await axios.get(`${baseURL}/characters`, {
-        params,
+      return new Promise((resolve) => {
+        const interval = setInterval(() => {
+          progress += increment;
+          if (progress >= 100) {
+            setProgress(100);
+            clearInterval(interval);
+            resolve();
+          } else {
+            setProgress(progress);
+          }
+        }, 100);
       });
-      await simulateProgress();
-      setLoading(false);
-      return response.data.data.results;
-    } catch (error) {
-      setLoading(false);
-      console.error("Error fetching characters:", error);
-      return [];
-    }
-  };
+    },
+    [setProgress]
+  );
 
-  const fetchCharacterDetails = async (id) => {
-    setLoading(true);
-    setProgress(0);
+  const fetchCharacters = useCallback(
+    async (limit = 50) => {
+      setProgress(0);
+      setLoading(true);
+      setError(null);
 
-    const params = getAuthParams();
+      const params = {
+        ...getAuthParams(),
+        limit,
+      };
 
-    try {
-      const response = await axios.get(`${baseURL}/characters/${id}`, {
-        params,
-      });
-      await simulateProgress();
-      setLoading(false);
-      return response.data.data.results[0];
-    } catch (error) {
-      setLoading(false);
-      console.error("Error fetching character details:", error);
-      return null;
-    }
-  };
+      try {
+        const response = await axios.get(`${baseURL}/characters`, {
+          params,
+        });
+        await simulateProgress();
+        setLoading(false);
+        return response.data.data.results;
+      } catch (error) {
+        setLoading(false);
+        setError("Error fetching characters || " + error.response.data.message);
+        console.error("Error fetching characters:", error);
+        return [];
+      }
+    },
+    [setLoading, setProgress, simulateProgress, setError]
+  );
 
-  const fetchComics = async (id) => {
-    setLoading(true);
-    setProgress(0);
+  const fetchCharacterDetails = useCallback(
+    async (id) => {
+      setLoading(true);
+      setProgress(0);
+      setError(null);
 
-    const params = getAuthParams();
+      const params = getAuthParams();
 
-    try {
-      const response = await axios.get(`${baseURL}/characters/${id}/comics`, {
-        params,
-      });
-      await simulateProgress();
-      setLoading(false);
-      return response.data.data.results;
-    } catch (error) {
-      setLoading(false);
-      console.error("Error fetching comics:", error);
-      return [];
-    }
-  };
+      try {
+        const response = await axios.get(`${baseURL}/characters/${id}`, {
+          params,
+        });
+        await simulateProgress();
+        setLoading(false);
+        return response.data.data.results[0];
+      } catch (error) {
+        setLoading(false);
+        setError(
+          "Error fetching character details ||" + error.response.data.message
+        );
+        console.error("Error fetching character details:", error);
+        return null;
+      }
+    },
+    [setLoading, setProgress, simulateProgress, setError]
+  );
+
+  const fetchComics = useCallback(
+    async (id) => {
+      setLoading(true);
+      setProgress(0);
+      setError(null);
+
+      const params = getAuthParams();
+
+      try {
+        const response = await axios.get(`${baseURL}/characters/${id}/comics`, {
+          params,
+        });
+        await simulateProgress();
+        setLoading(false);
+        return response.data.data.results;
+      } catch (error) {
+        setLoading(false);
+        setError("Error fetching comics" + error.response.data.message);
+        console.error("Error fetching comics:", error);
+        return [];
+      }
+    },
+    [setLoading, setProgress, simulateProgress, setError]
+  );
 
   return { fetchCharacters, fetchCharacterDetails, fetchComics };
 };

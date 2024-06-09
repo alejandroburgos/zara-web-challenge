@@ -3,11 +3,7 @@
   position: relative;
   height: 100vh;
 
-  @media (max-width: $breakpoint-mobile) {
-    padding: 20px;
-  }
-
-  @media (max-width: $breakpoint-tablet) {
+  @media (max-width: $breakpoint-mobile), (max-width: $breakpoint-tablet) {
     padding: 20px;
   }
 

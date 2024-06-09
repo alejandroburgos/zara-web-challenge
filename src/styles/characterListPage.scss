@@ -1,6 +1,10 @@
 .character-list-page {
   padding: 50px;
 
+  @media (max-width: $breakpoint-mobile), (max-width: $breakpoint-tablet) {
+    padding: 15px;
+  }
+
   &__title-favorites {
     font-size: $font-xxl-size;
     font-weight: $font-weight-bold;
@@ -24,7 +28,6 @@
 
     @media (max-width: $breakpoint-tablet) {
       grid-template-columns: repeat(2, 1fr);
-      padding: 20px;
     }
   }
 }

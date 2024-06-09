@@ -5,11 +5,7 @@
   color: $marvel-white;
   cursor: pointer;
 
-  @media (max-width: $breakpoint-mobile) {
-    height: 360px;
-  }
-
-  @media (max-width: $breakpoint-tablet) {
+  @media (max-width: $breakpoint-mobile), (max-width: $breakpoint-tablet) {
     height: 360px;
   }
 
@@ -34,11 +30,7 @@
   &:hover .character-card__image {
     border-bottom: 100px solid $marvel-red;
 
-    @media (max-width: $breakpoint-mobile) {
-      border-bottom: 60px solid $marvel-red;
-    }
-
-    @media (max-width: $breakpoint-tablet) {
+    @media (max-width: $breakpoint-mobile), (max-width: $breakpoint-tablet) {
       border-bottom: 60px solid $marvel-red;
     }
   }
@@ -65,6 +57,14 @@
       border-bottom: 15px solid $marvel-white;
       border-right: 15px solid $marvel-white;
       z-index: 1;
+
+      @media (max-width: $breakpoint-mobile), (max-width: $breakpoint-tablet) {
+        top: 21.4em;
+        border-top: 10px solid transparent;
+        border-left: 10px solid transparent;
+        border-bottom: 10px solid $marvel-white;
+        border-right: 10px solid $marvel-white;
+      }
     }
   }
 
@@ -75,14 +75,11 @@
     font-size: $font-s-size;
     margin: 10px 0;
     margin-left: 10px;
+    white-space: nowrap;
     z-index: 1;
 
-    @media (max-width: $breakpoint-mobile) {
-      bottom: 1em;
-    }
-
-    @media (max-width: $breakpoint-tablet) {
-      bottom: 1em;
+    @media (max-width: $breakpoint-mobile), (max-width: $breakpoint-tablet) {
+      bottom: 0.8em;
     }
   }
 
@@ -93,15 +90,11 @@
     width: 15px;
     height: 15px;
     right: 10px;
-    bottom: 4em;
+    bottom: 4.2em;
     z-index: 4;
     cursor: pointer;
 
-    @media (max-width: $breakpoint-mobile) {
-      bottom: 1.4em;
-    }
-
-    @media (max-width: $breakpoint-tablet) {
+    @media (max-width: $breakpoint-mobile), (max-width: $breakpoint-tablet) {
       bottom: 1.4em;
     }
   }

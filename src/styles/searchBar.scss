@@ -5,6 +5,10 @@
   width: 100%;
   margin-bottom: 20px;
 
+  @media (max-width: $breakpoint-mobile), (max-width: $breakpoint-tablet) {
+    margin-top: 30px;
+  }
+
   &__icon {
     position: absolute;
     top: 2px;
