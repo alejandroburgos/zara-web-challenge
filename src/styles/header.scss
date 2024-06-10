@@ -6,12 +6,16 @@
   justify-content: space-between;
   align-items: center;
 
+  a {
+    text-decoration: none;
+    color: $marvel-white;
+  }
+
   &__favorites {
     display: flex;
     align-items: center;
     gap: 10px;
     margin-right: 50px;
-    text-decoration: none;
     color: $marvel-white;
   }
 }
