@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FavoritesContext } from "../context/FavoritesContext";
 import heartUnselected from "../assets/icons/heart-unselected.svg";
@@ -6,6 +6,20 @@ import heartUnselected from "../assets/icons/heart-unselected.svg";
 const CharacterCard = ({ character }) => {
   const { isFavorite, addFavorite, removeFavorite } =
     useContext(FavoritesContext);
+
+  const [characterName, setCharacterName] = useState(character.name);
+
+  const isMobile = window.innerWidth < 768;
+
+  useEffect(() => {
+    if (isMobile) {
+      setCharacterName(
+        character.name.length > 12
+          ? character.name.substring(0, 22) + "..."
+          : character.name
+      );
+    }
+  }, [isMobile, character.name]);
 
   return (
     <div className="character-card">
@@ -23,7 +37,7 @@ const CharacterCard = ({ character }) => {
       </Link>
 
       <div>
-        <h2 className="character-card__name">{character.name}</h2>
+        <h2 className="character-card__name">{characterName}</h2>
         {isFavorite && isFavorite(character.id) ? (
           <svg
             className="character-card__favorite"

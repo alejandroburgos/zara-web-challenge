@@ -11,9 +11,9 @@
   cursor: hand;
   cursor: pointer;
   font-family: sans-serif;
-  font-weight: 400;
-  background-color: #f8d7da;
-  color: #721c24;
+  font-weight: $font-weight;
+  background-color: $marvel-alert-bg;
+  color: $marvel-alert-text;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -32,9 +32,9 @@
   }
 
   &__button {
-    background-color: #f5c6cb;
+    background-color: $marvel-alert-bg;
     border: none;
-    color: #721c24;
+    color: $marvel-alert-text;
     font-size: 0.8rem;
     font-weight: 700;
     margin-left: 0.5rem;

@@ -13,7 +13,7 @@ const App = () => {
     <div>
       <Header />
       <Routes>
-        <Route path="/" element={<CharacterListPage />} />
+        <Route path="/" element={<CharacterListPage showFavorites={false} />} />
         <Route
           path="/favorites"
           element={<CharacterListPage showFavorites={true} />}

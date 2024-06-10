@@ -18,7 +18,7 @@ const getAuthParams = () => {
 };
 
 export const useMarvelApi = () => {
-  const { setLoading, setProgress, setError } = useLoading(); // Agregar setError
+  const { setLoading, setProgress, setError } = useLoading();
 
   const simulateProgress = useCallback(
     (duration = 1000) => {
@@ -53,9 +53,7 @@ export const useMarvelApi = () => {
       };
 
       try {
-        const response = await axios.get(`${baseURL}/characters`, {
-          params,
-        });
+        const response = await axios.get(`${baseURL}/characters`, { params });
         await simulateProgress();
         setLoading(false);
         return response.data.data.results;
@@ -87,7 +85,7 @@ export const useMarvelApi = () => {
       } catch (error) {
         setLoading(false);
         setError(
-          "Error fetching character details ||" + error.response.data.message
+          "Error fetching character details || " + error.response.data.message
         );
         console.error("Error fetching character details:", error);
         return null;
@@ -98,9 +96,9 @@ export const useMarvelApi = () => {
 
   const fetchComics = useCallback(
     async (id) => {
+      setError(null);
       setLoading(true);
       setProgress(0);
-      setError(null);
 
       const params = getAuthParams();
 
@@ -113,7 +111,7 @@ export const useMarvelApi = () => {
         return response.data.data.results;
       } catch (error) {
         setLoading(false);
-        setError("Error fetching comics" + error.response.data.message);
+        setError("Error fetching comics || " + error.response.data.message);
         console.error("Error fetching comics:", error);
         return [];
       }

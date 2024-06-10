@@ -4,7 +4,6 @@ import CharacterCard from "../components/CharacterCard";
 import SearchBar from "../components/SearchBar";
 import { FavoritesContext } from "../context/FavoritesContext";
 import { useLoading } from "../context/LoadingContext";
-import { charactersMock } from "../data/charactersMock";
 
 const CharacterListPage = ({ showFavorites }) => {
   const [characters, setCharacters] = useState([]);
@@ -12,27 +11,31 @@ const CharacterListPage = ({ showFavorites }) => {
   const [query, setQuery] = useState("");
   const { favorites } = useContext(FavoritesContext);
   const { fetchCharacters } = useMarvelApi();
-  const { loading } = useLoading();
+  const { loading, setLoading } = useLoading();
 
   useEffect(() => {
-    const fetchAllCharacters = async () => {
-      const results = await fetchCharacters();
-      if (results && results.status === 200) {
+    if (!showFavorites) {
+      const fetchAllCharacters = async () => {
+        const results = await fetchCharacters();
         setCharacters(results);
         setFilteredCharacters(results);
-      } else {
-        setCharacters(charactersMock);
-        setFilteredCharacters(charactersMock);
-      }
-    };
+      };
 
-    fetchAllCharacters();
-  }, []);
+      fetchAllCharacters();
+    } else {
+      setCharacters(favorites);
+      setFilteredCharacters(favorites);
+      setLoading(false);
+    }
+  }, [showFavorites]);
 
   useEffect(() => {
     if (showFavorites) {
+      setCharacters(favorites);
       setFilteredCharacters(favorites);
-    } else if (!query) {
+      setLoading(false);
+    } else if (!showFavorites) {
+      setCharacters(characters);
       setFilteredCharacters(characters);
     }
   }, [showFavorites, favorites, characters, query]);

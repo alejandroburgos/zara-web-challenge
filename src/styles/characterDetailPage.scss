@@ -4,6 +4,7 @@
   background-color: $marvel-black;
   color: $marvel-white;
   justify-content: center;
+  height: 100%;
 
   @media (max-width: $breakpoint-mobile), (max-width: $breakpoint-tablet) {
     padding: 0;
@@ -12,7 +13,7 @@
   &::after {
     content: "";
     position: absolute;
-    top: 29.5em;
+    top: 23em;
     bottom: 0;
     right: 0;
     width: 0;
@@ -24,7 +25,7 @@
     z-index: 1;
 
     @media (max-width: $breakpoint-mobile), (max-width: $breakpoint-tablet) {
-      top: 43.3em;
+      top: 48.3em;
     }
   }
 
@@ -48,33 +49,37 @@
       width: 40px;
       height: 40px;
       cursor: pointer;
+
+      @media (max-width: $breakpoint-mobile), (max-width: $breakpoint-tablet) {
+        margin-top: 10px;
+      }
     }
 
-    .character-detail__content {
+    &__content {
       flex: 1;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
-  }
 
-  .character-detail__image {
-    width: 400px;
-    height: auto;
+    &__image {
+      width: 300px;
+      height: 300px;
 
-    @media (max-width: $breakpoint-mobile), (max-width: $breakpoint-tablet) {
-      width: 100%;
+      @media (max-width: $breakpoint-mobile), (max-width: $breakpoint-tablet) {
+        width: 100%;
+      }
+
+      &__name {
+        font-size: $font-xxl-size;
+        margin: 10px 0;
+      }
+
+      &__description {
+        text-transform: capitalize;
+        font-size: $font-m-size;
+        margin: 20px;
+      }
     }
-  }
-
-  .character-detail__name {
-    font-size: $font-xxl-size;
-    margin: 10px 0;
-  }
-
-  .character-detail__description {
-    text-transform: capitalize;
-    font-size: $font-m-size;
-    margin: 20px;
   }
 }
