@@ -70,17 +70,17 @@
         width: 100%;
         height: auto;
       }
+    }
 
-      &__name {
-        font-size: $font-xxl-size;
-        margin: 10px 0;
-      }
+    &__name {
+      font-size: $font-xxl-size;
+      margin: 10px 0;
+    }
 
-      &__description {
-        text-transform: capitalize;
-        font-size: $font-m-size;
-        margin: 20px;
-      }
+    &__description {
+      text-transform: capitalize;
+      font-size: $font-m-size;
+      margin: 20px;
     }
   }
 }
