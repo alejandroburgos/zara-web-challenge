@@ -32,6 +32,4 @@ El buscador de personajes de Marvel se filtra sin API, ya que no he encontrado u
 
 Esta aplicación utiliza la API de Marvel para obtener y mostrar información sobre los personajes de Marvel. Para utilizar esta API, necesitarás obtener una clave API de Marvel.
 
-Visita el [sitio web oficial de Marvel](https://developer.marvel.com/) para obtener más información sobre cómo obtener una clave API.
-
 La aplicación está actualmente alojada en https://zara-challenge-marvel.aleburgos.es/.
